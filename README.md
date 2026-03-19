@@ -59,6 +59,15 @@ Run the Pest test suite to verify the application:
 php artisan test
 ```
 
+## Troubleshooting
+
+### PowerShell Script Execution (Windows)
+If you see a security error when running `npm` or `artisan` scripts in PowerShell:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+This allows locally created scripts to run while maintaining security for downloaded scripts.
+
 ## Default Credentials
 - **Admin**: `admin@example.com` / `password`
 - **User**: `user@example.com` / `password`
