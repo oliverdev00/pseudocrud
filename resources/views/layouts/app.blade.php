@@ -13,6 +13,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <link rel="icon" type="image/png" href="{{ asset('images/rilakkuma_logo.png') }}">
     </head>
     <body class="font-sans antialiased selection:bg-indigo-500/30">
         <!-- Aurora Background -->
