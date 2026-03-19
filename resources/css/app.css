@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#020617] text-gray-200 selection:bg-indigo-500/30;
+        overflow-x: hidden;
+    }
+}
+
+@layer components {
+    .glass {
+        @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+    }
+
+    .glass-dark {
+        @apply backdrop-blur-2xl bg-black/40 border border-white/5 shadow-2xl;
+    }
+
+    .aurora-container {
+        @apply fixed inset-0 -z-10 overflow-hidden pointer-events-none;
+    }
+
+    .aurora-blob {
+        @apply absolute blur-[120px] opacity-40 mix-blend-screen animate-aurora;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+    }
+
+    .aurora-1 { @apply bg-indigo-600 top-[-10%] left-[-10%] animation-delay-0; }
+    .aurora-2 { @apply bg-fuchsia-600 bottom-[-10%] right-[-10%] animation-delay-2000; }
+    .aurora-3 { @apply bg-sky-600 top-[20%] right-[10%] animation-delay-4000; }
+    .aurora-4 { @apply bg-purple-900 bottom-[20%] left-[10%] animation-delay-6000; }
+}
+
+@keyframes aurora {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.animate-aurora {
+    animation: aurora 20s infinite alternate ease-in-out;
+}
+
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-6000 { animation-delay: 6s; }
+
+/* Evil Aero Accents */
+.aero-border-high { @apply border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)]; }
+.aero-border-medium { @apply border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.3)]; }
+.aero-border-low { @apply border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]; }

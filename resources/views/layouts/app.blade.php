@@ -14,13 +14,21 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased selection:bg-indigo-500/30">
+        <!-- Aurora Background -->
+        <div class="aurora-container">
+            <div class="aurora-blob aurora-1"></div>
+            <div class="aurora-blob aurora-2"></div>
+            <div class="aurora-blob aurora-3"></div>
+            <div class="aurora-blob aurora-4"></div>
+        </div>
+
+        <div class="min-h-screen">
             <livewire:layout.navigation />
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
+                <header class="glass sticky top-0 z-30 border-b border-white/10">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -28,7 +36,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="relative z-10">
                 {{ $slot }}
             </main>
         </div>
