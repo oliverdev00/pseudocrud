@@ -29,10 +29,10 @@
         border-radius: 50%;
     }
 
-    .aurora-1 { @apply bg-indigo-600 top-[-10%] left-[-10%] animation-delay-0; }
-    .aurora-2 { @apply bg-fuchsia-600 bottom-[-10%] right-[-10%] animation-delay-2000; }
-    .aurora-3 { @apply bg-sky-600 top-[20%] right-[10%] animation-delay-4000; }
-    .aurora-4 { @apply bg-purple-900 bottom-[20%] left-[10%] animation-delay-6000; }
+    .aurora-1 { @apply bg-indigo-600 top-[-10%] left-[-10%]; animation-delay: 0s; }
+    .aurora-2 { @apply bg-fuchsia-600 bottom-[-10%] right-[-10%]; animation-delay: 2s; }
+    .aurora-3 { @apply bg-sky-600 top-[20%] right-[10%]; animation-delay: 4s; }
+    .aurora-4 { @apply bg-purple-900 bottom-[20%] left-[10%]; animation-delay: 6s; }
 }
 
 @keyframes aurora {
@@ -44,10 +44,6 @@
 .animate-aurora {
     animation: aurora 20s infinite alternate ease-in-out;
 }
-
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-.animation-delay-6000 { animation-delay: 6s; }
 
 /* Evil Aero Accents */
 .aero-border-high { @apply border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)]; }
