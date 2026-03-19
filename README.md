@@ -26,7 +26,7 @@ A modern, robust Task Management system built with Laravel 11/12, Livewire 3, an
 
 ### 1. Clone & Setup
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/oliverdev00/pseudocrud.git
 cd task-manager
 composer install
 npm install
