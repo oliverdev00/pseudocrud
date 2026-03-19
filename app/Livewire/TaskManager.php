@@ -14,6 +14,7 @@ class TaskManager extends Component
 
     // Filter properties
     public $statusFilter = '';
+    public $priorityFilter = '';
 
     // Modal state
     public $showModal = false;
@@ -47,7 +48,7 @@ class TaskManager extends Component
 
     public function render(TaskService $taskService)
     {
-        $tasks = $taskService->listForUser(Auth::user(), $this->statusFilter);
+        $tasks = $taskService->listForUser(Auth::user(), $this->statusFilter, $this->priorityFilter);
 
         return view('livewire.task-manager', [
             'tasks' => $tasks

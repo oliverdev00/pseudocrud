@@ -70,3 +70,15 @@ test('admin can delete any task', function () {
 
     assertDatabaseMissing('tasks', ['id' => $task->id]);
 });
+test('it can filter tasks by priority', function () {
+    $user = User::factory()->create();
+    Task::factory()->create(['user_id' => $user->id, 'priority' => 'high', 'title' => 'High Task']);
+    Task::factory()->create(['user_id' => $user->id, 'priority' => 'low', 'title' => 'Low Task']);
+
+    actingAs($user);
+
+    Livewire::test(TaskManager::class)
+        ->set('priorityFilter', 'high')
+        ->assertSee('High Task')
+        ->assertDontSee('Low Task');
+});
