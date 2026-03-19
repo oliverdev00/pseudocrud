@@ -1,3 +1,5 @@
+<?php
+
 use App\Livewire\TaskManager;
 use Illuminate\Support\Facades\Route;
 
