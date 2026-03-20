@@ -22,7 +22,16 @@ A modern, robust Task Management system built with Laravel 11/12, Livewire 3, an
 - **Testing**: Pest PHP
 - **Database**: SQLite (default)
 
-## Installation
+## Visuals
+
+> [!NOTE]
+> Add your own high-resolution screenshots here once deployed!
+
+### Dashboard Overview
+![Dashboard Placeholder](https://via.placeholder.com/1200x600?text=Your+Dashboard+Screenshot+Here)
+
+### Inline Task Management (Modal)
+![Modal Placeholder](https://via.placeholder.com/800x500?text=Edit+Modal+Screenshot+Here)
 
 ### 1. Clone & Setup
 ```bash
