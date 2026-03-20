@@ -48,10 +48,21 @@ class TaskManager extends Component
 
     public function render(TaskService $taskService)
     {
-        $tasks = $taskService->listForUser(Auth::user(), $this->statusFilter, $this->priorityFilter);
+        $user = Auth::user();
+        $tasks = $taskService->listForUser($user, $this->statusFilter, $this->priorityFilter);
+
+        // Stats calculation
+        $allTasks = $user->isAdmin() ? Task::query() : $user->tasks();
+        $stats = [
+            'total' => (clone $allTasks)->count(),
+            'pending' => (clone $allTasks)->where('status', 'pending')->count(),
+            'in_progress' => (clone $allTasks)->where('status', 'in_progress')->count(),
+            'done' => (clone $allTasks)->where('status', 'done')->count(),
+        ];
 
         return view('livewire.task-manager', [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'stats' => $stats,
         ])->layout('layouts.app');
     }
 

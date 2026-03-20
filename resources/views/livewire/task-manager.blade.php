@@ -37,14 +37,34 @@
                 </div>
             </div>
 
+            <!-- Stats Dashboard -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-black text-white">{{ $stats['total'] }}</span>
+                    <span class="text-[10px] uppercase tracking-widest text-indigo-300/50 font-bold">Total Tasks</span>
+                </div>
+                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-black text-yellow-400">{{ $stats['pending'] }}</span>
+                    <span class="text-[10px] uppercase tracking-widest text-yellow-400/50 font-bold">Pending</span>
+                </div>
+                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-black text-blue-400">{{ $stats['in_progress'] }}</span>
+                    <span class="text-[10px] uppercase tracking-widest text-blue-400/50 font-bold">In Progress</span>
+                </div>
+                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-black text-green-400">{{ $stats['done'] }}</span>
+                    <span class="text-[10px] uppercase tracking-widest text-green-400/50 font-bold">Completed</span>
+                </div>
+            </div>
+
             <!-- Task List -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($tasks as $task)
                     <div @class([
-                        'glass p-6 rounded-2xl hover:scale-[1.02] transition-all duration-300 relative group flex flex-col h-full',
-                        'aero-border-high' => $task->priority === 'high',
-                        'aero-border-medium' => $task->priority === 'medium',
-                        'aero-border-low' => $task->priority === 'low',
+                        'glass-card p-6 rounded-2xl relative group flex flex-col h-full',
+                        'border-red-500/20' => $task->priority === 'high',
+                        'border-orange-500/20' => $task->priority === 'medium',
+                        'border-cyan-500/20' => $task->priority === 'low',
                     ])>
                         <div class="flex justify-between items-start mb-6">
                             <span @class([

@@ -8,21 +8,21 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <link rel="icon" type="image/png" href="{{ asset('images/rilakkuma_logo.png') }}">
     </head>
-    <body class="font-sans antialiased selection:bg-indigo-500/30">
+    <body class="font-sans antialiased text-gray-200 selection:bg-indigo-500/30">
         <!-- Aurora Background -->
         <div class="aurora-container">
             <div class="aurora-blob aurora-1"></div>
             <div class="aurora-blob aurora-2"></div>
             <div class="aurora-blob aurora-3"></div>
-            <div class="aurora-blob aurora-4"></div>
         </div>
 
         <div class="min-h-screen">
