@@ -131,7 +131,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                             </svg>
                         </div>
-                        <p class="text-white/60 font-bold text-xl mb-1">Silence in the Aurora.</p>
+                        <p class="text-white/60 font-bold text-xl mb-1">Silence in the Tasker.</p>
                         <p class="text-indigo-200/30 text-sm">No tasks were found in this void.</p>
                     </div>
                 @endforelse
@@ -230,7 +230,7 @@
                                     <div class="mt-4 text-center sm:mt-0 sm:ml-6 sm:text-left">
                                         <h3 class="text-2xl font-black text-white" id="modal-title">Delete Task</h3>
                                         <div class="mt-4">
-                                            <p class="text-indigo-200/50 font-medium">This action is permanent and cannot be undone within the Aurora.</p>
+                                            <p class="text-indigo-200/50 font-medium">This action is permanent and cannot be undone within Tasker.</p>
                                         </div>
                                     </div>
                                 </div>

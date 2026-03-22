@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Aurora | Task Management</title>
+        <title>Tasker | Manage with Precision</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
                 <header class="w-full flex justify-between items-center mb-24 glass py-4 px-8 rounded-2xl border border-white/10">
                     <div class="flex items-center gap-3">
                         <x-application-logo class="h-10 w-auto text-indigo-400 drop-shadow-[0_0_10px_rgba(129,140,248,0.5)]" />
-                        <span class="text-xl font-black tracking-tighter text-white uppercase italic">Aurora</span>
+                        <span class="text-xl font-black tracking-tighter text-white uppercase italic">Tasker</span>
                     </div>
 
                     @if (Route::has('login'))
@@ -49,7 +49,7 @@
                 <!-- Hero Section -->
                 <main class="text-center max-w-4xl mx-auto">
                     <h1 class="text-6xl lg:text-8xl font-black text-white tracking-tight leading-[0.9] mb-8">
-                        Master your projects with <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-sky-400">Aurora precision.</span>
+                        Master your projects with <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-fuchsia-400 to-sky-400">Tasker precision.</span>
                     </h1>
                     
                     <p class="text-xl text-indigo-100/60 font-medium mb-12 max-w-2xl mx-auto">
@@ -87,7 +87,7 @@
                                 <svg class="size-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Modern Aesthetic</h3>
-                            <p class="text-sm text-indigo-100/40">Tailwind CSS powered Aurora design with glassmorphism and animated backgrounds.</p>
+                            <p class="text-sm text-indigo-100/40">Tailwind CSS powered premium design with glassmorphism and animated backgrounds.</p>
                         </div>
                     </div>
                 </main>
