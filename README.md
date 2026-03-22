@@ -1,4 +1,6 @@
-# Task Manager CRUD (Portfolio)
+# Task Manager
+<!-- Last Sync: 2026-03-21 20:10 -->
+ CRUD (Portfolio)
 
 A modern, robust Task Management system built with Laravel 11/12, Livewire 3, and Tailwind CSS. Designed for portfolios and professional task tracking.
 
