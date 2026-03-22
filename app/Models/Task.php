@@ -25,6 +25,8 @@ class Task extends Model
         'priority',
         'due_date',
         'user_id',
+        'client_name',
+        'client_email',
     ];
 
     /**
