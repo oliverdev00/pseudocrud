@@ -25,6 +25,12 @@
             <div class="aurora-blob aurora-3"></div>
         </div>
 
+        <!-- Starfield -->
+        <div class="stars-layer">
+            <div class="stars-1"></div>
+            <div class="stars-2"></div>
+        </div>
+
         <div class="min-h-screen">
             <livewire:layout.navigation />
 

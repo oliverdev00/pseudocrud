@@ -156,3 +156,57 @@
 .aero-border-high { @apply border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.3)]; }
 .aero-border-medium { @apply border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.3)]; }
 .aero-border-low { @apply border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]; }
+
+/* Starfield Effect */
+.stars-layer {
+    @apply fixed inset-0 -z-20 pointer-events-none;
+}
+
+.stars-1 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1744px 122px #FFF, 134px 1321px #FFF, 56px 634px #FFF, 1934px 162px #FFF, 456px 234px #FFF, 1234px 567px #FFF, 890px 12px #FFF, 345px 890px #FFF, 1678px 345px #FFF, 234px 1567px #FFF, 1456px 789px #FFF, 567px 1234px #FFF, 12px 1980px #FFF, 1890px 456px #FFF, 321px 123px #FFF, 678px 901px #FFF, 1567px 234px #FFF, 901px 1678px #FFF, 456px 12px #FFF, 1234px 1890px #FFF;
+    animation: animStar 50s linear infinite;
+}
+
+.stars-1:after {
+    content: " ";
+    @apply absolute top-[2000px];
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1744px 122px #FFF, 134px 1321px #FFF, 56px 634px #FFF, 1934px 162px #FFF, 456px 234px #FFF, 1234px 567px #FFF, 890px 12px #FFF, 345px 890px #FFF, 1678px 345px #FFF, 234px 1567px #FFF, 1456px 789px #FFF, 567px 1234px #FFF, 12px 1980px #FFF, 1890px 456px #FFF, 321px 123px #FFF, 678px 901px #FFF, 1567px 234px #FFF, 901px 1678px #FFF, 456px 12px #FFF, 1234px 1890px #FFF;
+}
+
+.stars-2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 456px 234px #FFF, 1234px 567px #FFF, 890px 12px #FFF, 345px 890px #FFF, 1678px 345px #FFF, 234px 1567px #FFF, 1456px 789px #FFF, 567px 1234px #FFF, 12px 1980px #FFF, 1890px 456px #FFF, 321px 123px #FFF, 678px 901px #FFF, 1567px 234px #FFF, 901px 1678px #FFF;
+    animation: animStar 100s linear infinite;
+}
+
+.stars-2:after {
+    content: " ";
+    @apply absolute top-[2000px];
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 456px 234px #FFF, 1234px 567px #FFF, 890px 12px #FFF, 345px 890px #FFF, 1678px 345px #FFF, 234px 1567px #FFF, 1456px 789px #FFF, 567px 1234px #FFF, 12px 1980px #FFF, 1890px 456px #FFF, 321px 123px #FFF, 678px 901px #FFF, 1567px 234px #FFF, 901px 1678px #FFF;
+}
+
+@keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+}
+
+.twinkle {
+    @apply absolute rounded-full bg-white opacity-0;
+    animation: twinkle-pulse 4s infinite ease-in-out;
+}
+
+@keyframes twinkle-pulse {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 10px 2px white; }
+}

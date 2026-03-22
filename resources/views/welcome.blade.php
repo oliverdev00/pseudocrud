@@ -22,6 +22,12 @@
             <div class="aurora-blob aurora-3"></div>
         </div>
 
+        <!-- Starfield -->
+        <div class="stars-layer">
+            <div class="stars-1"></div>
+            <div class="stars-2"></div>
+        </div>
+
         <div class="relative min-h-screen flex flex-col items-center justify-center p-6 lg:p-12 z-10">
             <div class="w-full max-w-7xl mx-auto flex flex-col items-center">
                 
