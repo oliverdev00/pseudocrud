@@ -12,7 +12,7 @@ class TaskService
      * List tasks for a given user, with optional status filter.
      * Admins see all tasks; regular users see only their own.
      */
-    public function listForUser(User $user, ?string $statusFilter = null, ?string $priorityFilter = null): Collection
+    public function listForUser(User $user, ?string $statusFilter = null, ?string $priorityFilter = null, ?string $clientFilter = null): Collection
     {
         $query = $user->isAdmin()
             ? Task::with('user')
@@ -24,6 +24,10 @@ class TaskService
 
         if ($priorityFilter && in_array($priorityFilter, ['low', 'medium', 'high'])) {
             $query->where('priority', $priorityFilter);
+        }
+
+        if ($clientFilter) {
+            $query->where('client_name', 'like', '%' . $clientFilter . '%');
         }
 
         return $query->latest()->get();

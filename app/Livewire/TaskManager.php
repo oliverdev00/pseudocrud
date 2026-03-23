@@ -15,6 +15,7 @@ class TaskManager extends Component
     // Filter properties
     public $statusFilter = '';
     public $priorityFilter = '';
+    public $clientFilter = '';
 
     // Modal state
     public $showModal = false;
@@ -26,6 +27,8 @@ class TaskManager extends Component
     public $status = 'pending';
     public $priority = 'medium';
     public $due_date = '';
+    public $client_name = '';
+    public $client_email = '';
 
     // Delete confirmation
     public $confirmingDelete = null;
@@ -38,6 +41,8 @@ class TaskManager extends Component
             'status' => 'required|in:pending,in_progress,done',
             'priority' => 'required|in:low,medium,high',
             'due_date' => 'nullable|date|after_or_equal:today',
+            'client_name' => 'nullable|string|max:255',
+            'client_email' => 'nullable|email|max:255',
         ];
     }
 
@@ -49,7 +54,7 @@ class TaskManager extends Component
     public function render(TaskService $taskService)
     {
         $user = Auth::user();
-        $tasks = $taskService->listForUser($user, $this->statusFilter, $this->priorityFilter);
+        $tasks = $taskService->listForUser($user, $this->statusFilter, $this->priorityFilter, $this->clientFilter);
 
         // Stats calculation
         $allTasks = $user->isAdmin() ? Task::query() : $user->tasks();
@@ -69,7 +74,7 @@ class TaskManager extends Component
     public function openCreateModal()
     {
         $this->resetValidation();
-        $this->reset(['editingTask', 'title', 'description', 'status', 'priority', 'due_date']);
+        $this->reset(['editingTask', 'title', 'description', 'status', 'priority', 'due_date', 'client_name', 'client_email']);
         $this->due_date = now()->format('Y-m-d');
         $this->showModal = true;
     }
@@ -85,6 +90,8 @@ class TaskManager extends Component
         $this->status = $task->status;
         $this->priority = $task->priority;
         $this->due_date = $task->due_date ? $task->due_date->format('Y-m-d') : '';
+        $this->client_name = $task->client_name;
+        $this->client_email = $task->client_email;
         
         $this->showModal = true;
     }
@@ -99,6 +106,8 @@ class TaskManager extends Component
             'status' => $this->status,
             'priority' => $this->priority,
             'due_date' => $this->due_date ?: null,
+            'client_name' => $this->client_name ?: null,
+            'client_email' => $this->client_email ?: null,
         ];
 
         if ($this->editingTask) {

@@ -13,6 +13,8 @@
                 
                 <div class="flex items-center gap-4">
                     <div class="flex gap-2">
+                        <input type="text" wire:model.live="clientFilter" placeholder="Filter by client..." class="glass bg-white/5 text-white rounded-xl border-white/10 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm py-2 px-4 placeholder-gray-500 hover:bg-white/10 transition-colors">
+                        
                         <select wire:model.live="statusFilter" class="glass bg-white/5 text-white rounded-xl border-white/10 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm py-2 px-4 appearance-none hover:bg-white/10 transition-colors">
                             <option value="" class="bg-gray-900">All Status</option>
                             <option value="pending" class="bg-gray-900">Pending</option>
@@ -37,23 +39,62 @@
                 </div>
             </div>
 
-            <!-- Stats Dashboard -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
-                    <span class="text-3xl font-black text-white">{{ $stats['total'] }}</span>
-                    <span class="text-[10px] uppercase tracking-widest text-indigo-300/50 font-bold">Total Tasks</span>
+            <!-- Stats Dashboard (Startup Bento Style) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass p-6 rounded-3xl border border-white/5 group hover:bg-white/5 transition-all duration-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-2 rounded-xl bg-indigo-500/10 text-indigo-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black text-white">{{ $stats['total'] }}</span>
+                    </div>
+                    <p class="text-[10px] items-center flex font-black uppercase tracking-[0.2em] text-indigo-300/40">
+                        Total <span class="ml-1 text-white/20">Operations</span>
+                    </p>
                 </div>
-                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
-                    <span class="text-3xl font-black text-yellow-400">{{ $stats['pending'] }}</span>
-                    <span class="text-[10px] uppercase tracking-widest text-yellow-400/50 font-bold">Pending</span>
+
+                <div class="glass p-6 rounded-3xl border border-white/5 group hover:bg-white/5 transition-all duration-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-2 rounded-xl bg-yellow-500/10 text-yellow-500">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black text-yellow-500">{{ $stats['pending'] }}</span>
+                    </div>
+                    <p class="text-[10px] items-center flex font-black uppercase tracking-[0.2em] text-yellow-500/40">
+                        Pending <span class="ml-1 text-white/20">Queue</span>
+                    </p>
                 </div>
-                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
-                    <span class="text-3xl font-black text-blue-400">{{ $stats['in_progress'] }}</span>
-                    <span class="text-[10px] uppercase tracking-widest text-blue-400/50 font-bold">In Progress</span>
+
+                <div class="glass p-6 rounded-3xl border border-white/5 group hover:bg-white/5 transition-all duration-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-2 rounded-xl bg-blue-500/10 text-blue-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black text-blue-400">{{ $stats['in_progress'] }}</span>
+                    </div>
+                    <p class="text-[10px] items-center flex font-black uppercase tracking-[0.2em] text-blue-400/40">
+                        Active <span class="ml-1 text-white/20">Sprints</span>
+                    </p>
                 </div>
-                <div class="glass p-4 rounded-2xl border border-white/5 flex flex-col items-center justify-center">
-                    <span class="text-3xl font-black text-green-400">{{ $stats['done'] }}</span>
-                    <span class="text-[10px] uppercase tracking-widest text-green-400/50 font-bold">Completed</span>
+
+                <div class="glass p-6 rounded-3xl border border-white/5 group hover:bg-white/5 transition-all duration-500">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-2 rounded-xl bg-green-500/10 text-green-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-black text-green-400">{{ $stats['done'] }}</span>
+                    </div>
+                    <p class="text-[10px] items-center flex font-black uppercase tracking-[0.2em] text-green-400/40">
+                        Resolved <span class="ml-1 text-white/20">Assets</span>
+                    </p>
                 </div>
             </div>
 
@@ -95,6 +136,20 @@
                         <p class="text-indigo-100/60 text-sm mb-6 line-clamp-3 leading-relaxed flex-grow">
                             {{ $task->description ?: 'No description provided.' }}
                         </p>
+
+                        @if($task->client_name)
+                            <div class="mb-4 flex items-center gap-2 group/client">
+                                <div class="p-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 group-hover/client:bg-indigo-500/20 transition-colors">
+                                    <svg class="h-3 w-3 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400/40 leading-none mb-1">Client</p>
+                                    <p class="text-xs font-bold text-indigo-200">{{ $task->client_name }}</p>
+                                </div>
+                            </div>
+                        @endif
 
                         <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5 text-xs font-medium text-indigo-200/40">
                             <div class="flex items-center">
@@ -187,6 +242,20 @@
                                                     <option value="high" class="bg-gray-900">High</option>
                                                 </select>
                                                 @error('priority') <span class="text-red-400 text-xs font-bold mt-1 block">{{ $message }}</span> @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="grid grid-cols-2 gap-6">
+                                            <div>
+                                                <label class="block text-xs font-black uppercase tracking-widest text-indigo-200/50 mb-2">Client Name</label>
+                                                <input type="text" wire:model="client_name" placeholder="e.g. Acme Corp" class="block w-full rounded-xl bg-white/5 border-white/10 focus:border-indigo-500 focus:ring-indigo-500 text-white placeholder-gray-600 py-3 px-4 transition-all">
+                                                @error('client_name') <span class="text-red-400 text-xs font-bold mt-1 block">{{ $message }}</span> @enderror
+                                            </div>
+
+                                            <div>
+                                                <label class="block text-xs font-black uppercase tracking-widest text-indigo-200/50 mb-2">Client Email</label>
+                                                <input type="email" wire:model="client_email" placeholder="client@example.com" class="block w-full rounded-xl bg-white/5 border-white/10 focus:border-indigo-500 focus:ring-indigo-500 text-white placeholder-gray-600 py-3 px-4 transition-all">
+                                                @error('client_email') <span class="text-red-400 text-xs font-bold mt-1 block">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
 
