@@ -13,11 +13,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
+        <script>
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <link rel="icon" type="image/png" href="{{ asset('images/rilakkuma_logo.png') }}">
     </head>
-    <body class="font-sans antialiased text-gray-200 selection:bg-indigo-500/30">
+    <body class="font-sans antialiased bg-white text-gray-900 dark:bg-[#020617] dark:text-gray-200 selection:bg-indigo-500/30 transition-colors duration-300">
         <!-- Aurora Background -->
         <div class="aurora-container">
             <div class="aurora-blob aurora-1"></div>
